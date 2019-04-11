@@ -1,0 +1,292 @@
+/* Cusot fonts */
+@font-face {
+    font-family: omnib;
+    src: url(assets/omnib.ttf);
+  }
+  @font-face {
+    font-family: moonrise;
+    src: url(assets/moonrise.otf);
+  }
+/* Layout */
+.container{
+    width:80%;
+    height: 100vh;
+    margin:0 auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    border:1px solid black;
+}
+.welcome, .switchWords,.heartBeat, .cityscape {
+    width:100%;
+    text-align: center;
+}
+.shiftWords{
+    width: 100%;
+    display: flex;
+}
+.shiftWords div{width:33.33%;}
+.buttons, .loading{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttons > div, .loading > div{
+    width:50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*style*/
+.welcome{
+    height:20vh;
+    background-image:url("./assets/artDeco2.jpg");
+  /*   top left position */
+    background-position:0 0;
+    animation:moveBg 30s linear infinite;
+}
+.welcome h1{
+    color: #bda124;
+    font-family: 'omnib', sans-serif;
+    font-size: 60px;
+    text-transform: uppercase;
+    background-color: rgba(83,59,57, .8);
+}
+@keyframes moveBg{
+    from{background-position:0 0;}
+    to{background-position:625px 0;}
+  }
+
+.shiftWords{
+    background-color: #4f3139; 
+    height: 20vh;
+}
+.shiftWords div{
+    display: flex;
+    justify-content: center;
+    align-items: center}
+.wave{
+    font-size: 50px;
+    font-family: 'omnib', sans-serif;
+    color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    background-image:url(assets/artDeco.jpg);
+    -webkit-background-clip: text;
+    animation: wave 20s linear infinite;
+}
+@keyframes wave{
+    from{background-position: 0 0}
+    to{background-position: 100% 100%}
+}
+ .swing{
+    text-align:center;
+  color:#d6b44f;
+  font-size:50px;
+  letter-spacing:10px;
+  text-transform:uppercase;
+  font-family:'omnib', sans-serif;
+  animation: float 3s linear infinite alternate;
+}
+@keyframes float{
+  from{transform:rotate(5deg);}
+  to{transform:rotate(-5deg);}
+}
+
+ul.lightning{
+    display:flex;
+    margin:0;
+    padding:0;
+}
+ul.lightning li{
+    list-style:none;
+    color:#bfdbcb;
+    font-size:50px;
+    letter-spacing:15px;
+    font-weight:bold;
+    animation:glow 1.6s linear infinite;
+  }
+  @keyframes glow{
+    0%{color:#bfdbcb; text-shadow:none}
+    90%{color:#bfdbcb; text-shadow:none}
+    100%{color:#d6b44f; text-shadow:0 0 7px #d6b44f, 0 0 50px #d6b44f}
+  }
+  ul.lightning li:nth-child(1){animation-delay:0s}
+  ul.lightning li:nth-child(2){animation-delay:0.1s}
+  ul.lightning li:nth-child(3){animation-delay:0.2s}
+  ul.lightning li:nth-child(4){animation-delay:0.3s}
+  ul.lightning li:nth-child(5){animation-delay:0.4s}
+  ul.lightning li:nth-child(6){animation-delay:0.5s}
+  ul.lightning li:nth-child(7){animation-delay:0.6s}
+  
+
+  .buttons{
+    height: 10vh;
+    background-color: #4f3139;
+    z-index: -2;
+  }
+  .buttons a{
+    text-decoration:none;
+    color:#bfdbcb;
+    font-family:'moonrise', sans-serif;
+    font-size:40px;
+    border:1px solid #bfdbcb;
+    box-sizing: border-box;
+    padding:20px 40px;
+    transition:all 0.3s;
+  }
+  .shake:hover{
+    border:3px solid #d6b44f;
+    color:#d6b44f;
+    animation: shakeEl 0.3s linear 1;
+  }
+  @keyframes shakeEl{
+    33%{transform: rotate(10deg);}
+    66%{transform: rotate(-10deg);}
+    100%{transform: rotate(10deg);}
+  }
+
+  .glow{
+    overflow:hidden;
+    position:relative;
+  }
+
+  .glow:before{
+    content:'';
+    background-color:#3d6972;
+    top:0;
+    left:0;
+    height:100%;
+    width:120px;
+    position:absolute;
+    z-index:-1;
+    transform:skew(-15deg);
+    animation:moveGlow 1.2s linear infinite;
+    transition: all 0.5s;
+  }
+  @keyframes moveGlow{
+    from{left:-120px;}
+    to{left:100%}
+  }
+  .glow:hover:before{
+    width:100%;
+    transform:skew(0);
+    animation:none;
+  }
+
+  .loading{
+    height: 17vh;
+    perspective:200px;
+    background-color: #4f3139;
+  }
+  ul.loadBalls{
+    display:flex;
+    margin:0;
+    padding:0;
+  }
+  ul.loadBalls li{
+    list-style:none;
+    width:20px;
+    height:20px;
+    background-color:#bda124;
+    transform: rotate(45deg);
+    margin:0 10px;
+    animation:jumping 1s linear infinite;
+  }
+  @keyframes jumping{
+    0%{transform: translateY(0) rotate(45deg);}
+    50%{transform: translateY(-50px) rotate(45deg);}
+    100%{transform: translateY(0) rotate(45deg);}
+  }
+  ul.loadBalls li:nth-child(1){animation-delay:0.45s;}
+  ul.loadBalls li:nth-child(2){animation-delay:0.6s;}
+  ul.loadBalls li:nth-child(3){animation-delay:0.9s;}
+  ul.loadBalls li:nth-child(4){animation-delay:0.4s;}
+  ul.loadBalls li:nth-child(5){animation-delay:0s;}
+
+  #el{
+    width:50px;
+    height:50px;
+    background-color:#bda124;
+    animation:loading 2s linear infinite;
+  }
+  @keyframes loading{
+    0%{transform:rotateX(0deg) rotateY(0deg);}
+    50%{transform:rotateX(0deg) rotateY(180deg);}
+    100%{transform:rotateX(180deg) rotateY(180deg);}
+  }
+
+  .bgContainer{
+    background-image: url(assets/nyc.jpg);
+    width: 100%;
+    height: 33vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -900px;
+  }
+
+  .switchWords h2{
+    color:#dccaaa;
+    font-size:60px;
+    font-weight:bold;
+    font-family:'moonrise', sans-serif;
+  }
+  .switchWords span:before{
+    content:'transitions';
+    text-transform:uppercase;
+    color:#bfdbcb;
+    animation: words 2s infinite;
+  }
+  @keyframes words{
+    0%{content:'Dancing'}
+    50%{content:'NYC'}
+    100%{content:'Coctails'}
+  }
+
+  .heartBeat{
+      display: flex;
+      justify-content: center;
+      align-items: center;}
+  .heart{
+    position:relative;
+    width:60px;
+    height:60px;
+    margin: 0 auto;
+    background-color:#bda124;
+    transform:rotate(45deg);
+    animation:heartbeat 1.4s linear infinite;
+  }
+  .heart:before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#bda124;
+    transform:translateY(-50%);
+    border-radius:50%;
+  }
+  .heart:after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#bda124;
+    transform:translateX(-50%);
+    border-radius:50%;
+  }
+  @keyframes heartbeat{
+    0%{transform:rotate(45deg) scale(1);}
+    24%{transform:rotate(45deg) scale(1);}
+    30%{transform:rotate(45deg) scale(1.4);}
+    50%{transform:rotate(45deg) scale(1.2);}
+    70%{transform:rotate(45deg) scale(1.4);}
+    100%{transform:rotate(45deg) scale(1);}
+  }
+ 
